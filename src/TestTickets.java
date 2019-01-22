@@ -1,8 +1,10 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 /*
+ * 
  * Several ticket vendors are selling their tickets at the fair. 
  * The price of a ticket is determined by the number of tickets the vendor has.
  * If the vendor has 9 tickets, the next ticket bought from that vendor will be 9 dollars.
@@ -15,36 +17,25 @@ import org.junit.Test;
  */
 public class TestTickets {
 
-	@Test(timeout = 3)
+	@Test
 	public void testVendors() {
 		int[] vendors = { 3, 4, 8, 6, 8, 9 };
 		assertTrue(TicketVendors.solve(vendors, 5) == 40);
 	}
 
-	@Test(timeout = 3)
+	@Test
 	public void testVendors2() {
 		int[] vendors = { 3, 4, 8, 6, 8, 9, 9, 0, 3, 4, 5 };
 		System.out.println(TicketVendors.solve(vendors, 10));
 		assertTrue(TicketVendors.solve(vendors, 10) == 78);
 	}
 
-	@Test(timeout = 9)
-	public void testVendors3() {
-		int[] vendors = { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		vendors = new int[] { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		vendors = new int[] { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		vendors = new int[] { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		vendors = new int[] { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		vendors = new int[] { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
-		vendors = new int[] { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 520, 1000, 300, 3000, 300, 40050, 60000, 6000 };
-		assertTrue(TicketVendors.solve(vendors, 50000) == 1975775625);
+	@Test(timeout = 45)
+	public void testOptimizedVendors() {
+		long time = System.currentTimeMillis();
+		int[] vendors = { 3, 4, 8, 6, 8, 9, 100, 0, 3, 4, 1000007, 1000, 300, 3000, 300, 40050, 60000, 6000 };
+		assertEquals("Input does not match", TicketVendors.solve(vendors, 100007), 517769516);
+		System.out.println((System.currentTimeMillis()-time));
 	}
 
 }
