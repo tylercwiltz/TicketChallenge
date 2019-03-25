@@ -70,7 +70,7 @@ public class TestTickets {
     }
 
     @Test(timeout = 200)
-    public void testVendorWithLargeNumberOfVendors() {
+    public void testVeryLargeNumberOfVendors() {
         int[] vendors = new int[1000000];
         for (int i = 0; i < vendors.length; i++) {
             vendors[i] = 2 * i + 1;
