@@ -69,6 +69,15 @@ public class TestTickets {
         assertEquals(Integer.MAX_VALUE, TicketVendors.solve(vendors, 1));
     }
 
+    @Test(timeout = 200)
+    public void testVeryLargeNumberOfVendors() {
+        int[] vendors = new int[1000000];
+        for (int i = 0; i < vendors.length; i++) {
+            vendors[i] = 2 * i + 1;
+        }
+        assertEquals(19999962, TicketVendors.solve(vendors, 10));
+    }
+
     @Test
     public void testRandomCase() {
 
